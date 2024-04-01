@@ -1,10 +1,11 @@
 #!/bin/bash
 
 url=$1
-file=$2
+message=$2
 
-for i in $(seq 1 10);
+
+for i in $(seq 1 100);
 do
-	curl -X POST -H 'Content-Type: application/json' -d @$file $url
-	sleep 2
+	curl -X POST -H 'Content-Type: application/json' -d $message $url
+	sleep 1
 done
