@@ -25,6 +25,13 @@ then
         bash $script $url $progressMessage
         exit
     fi
+    if [ $type == "utilization" ]
+    then
+        script="/app/sendmessages/sendUtilizationMessageToKafka.sh"
+        url="$url/producemessage/cpu-mem-utilization"
+        bash $script $url
+        exit
+    fi
     echo "types of messages are progress or performance"
     exit
 else
