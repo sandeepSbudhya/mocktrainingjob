@@ -63,9 +63,10 @@ do
         sused=${arr2[0]}
         savail=${arr2[2]}
     done <<< $memusage
-    message="{\"cpu\":{\"us\":$us,\"sy\":$sy,\"ni\":$ni,\"id\":$id,\"wa\":$wa,\"hi\":$hi,\"si\":$si,\"st\":$st},\"memory\":{\"total\":$mtotal,\"free\":$mfree,\"used\":$mused,\"cache\":$mcache},\"swap\":{\"total\":$stotal,\"free\":$sfree,\"used\":$sused,\"avail\":$savail},\"jobId\":\"5d943b4f-5570-426f-8ae3-8cc265ebacfd-007\"}"
+    message="{\"cpu\":{\"us\":$us,\"sy\":$sy,\"ni\":$ni,\"id\":$id,\"wa\":$wa,\"hi\":$hi,\"si\":$si,\"st\":$st},\"memory\":{\"total\":$mtotal,\"free\":$mfree,\"used\":$mused,\"cache\":$mcache},\"swap\":{\"total\":$stotal,\"free\":$sfree,\"used\":$sused,\"avail\":$savail},\"jobId\":\"someTapisJobID\"}"
     echo "type: utilization"
     echo "url is: $url"
     echo "message:$message"
     curl -X POST -H 'Content-Type: application/json' -d $message $url
+    sleep 1
 done
